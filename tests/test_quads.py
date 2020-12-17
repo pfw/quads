@@ -284,6 +284,13 @@ class QuadNodeTestCase(unittest.TestCase):
         with self.assertRaises(ValueError):
             node.insert(Point(17, 55))
 
+    def test_insert_duplcate_to_capacity(self):
+        node = QuadNode(Point(0, 0), 20, 20, capacity=2)
+        node.insert(Point(1, 2))
+        node.insert(Point(1, 2))
+        node.insert(Point(1, 2))
+        
+
     def test_insert_ll(self):
         # Without this, a lower-left insert fails to be seen on coverage,
         # which is weird. Ensure that happens & things look right.
